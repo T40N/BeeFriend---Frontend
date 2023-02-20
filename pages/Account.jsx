@@ -8,7 +8,7 @@ import { ConstStyles } from "../constants/constStyles";
 import theme from "../constants/theme";
 import { logout } from "../store/userSlice/userSlice";
 
-const Account = () => {
+const Account = ({ navigation }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   console.log(logout);
@@ -77,12 +77,30 @@ const Account = () => {
               fontSize: 18,
               color: theme.BLACK,
               marginTop: 6,
-              marginBottom: 86,
+              marginBottom: 38,
             }}
           >
             {user.email}
           </Text>
-          <CustomButton title="Logout" onPress={handleOnLogout} />
+          <View
+            style={{
+              height: 180,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            <CustomButton
+              title='Change Email'
+              onPress={() => navigation.navigate("ChangeEmail")}
+            />
+            <CustomButton
+              title='Change Password'
+              onPress={() => navigation.navigate("ChangePassword")}
+            />
+            <CustomButton title='Logout' onPress={handleOnLogout} />
+          </View>
         </View>
       </View>
     </PageContainer>

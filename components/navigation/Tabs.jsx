@@ -6,7 +6,7 @@ import theme from "../../constants/theme";
 import { ConstStyles } from "../../constants/constStyles";
 import CustomTabBarButton from "./CustomTabBarButton";
 
-import Main from "../../pages/Main";
+import Main from "../../pages/Main/Main";
 import Account from "../../pages/Account";
 import Calendar from "../../pages/Calendar";
 import Magazyn from "../../pages/Magazyn";
@@ -28,7 +28,7 @@ const Tabs = () => {
           screenOptions={{
             tabBarShowLabel: false,
             headerShown: false,
-            lazy: false,
+            // lazy: false,
             tabBarStyle: {
               width: 360,
               pasition: "absolute",

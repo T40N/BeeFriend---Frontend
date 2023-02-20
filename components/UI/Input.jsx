@@ -11,6 +11,7 @@ const Input = ({
   onBlur,
   value,
   error,
+  mulitiline,
 }) => {
   const styles = StyleSheet.create({
     container: {
@@ -64,6 +65,7 @@ const Input = ({
         onFocus={onFocus || false}
         onBlur={onBlur || false}
         value={value}
+        multiline={mulitiline}
       />
     </View>
   );

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, register } from "./userActions";
+import { changeEmail, getCalendar, login, register } from "./userActions";
 
 const initialState = {
   id: "",
@@ -9,6 +9,7 @@ const initialState = {
   status: "fullfiled",
   token: "",
   error: "",
+  calendar: [],
 };
 
 const userSlice = createSlice({
@@ -20,6 +21,7 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
+        console.log(action.payload.token);
         state.status = "fullfiled";
         state.email = action.payload.email;
         state.name = action.payload.name;
@@ -27,6 +29,7 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.id = action.payload.userId;
         state.error = "";
+        state.calendar = action.payload.calendar;
       })
       .addCase(login.pending, (state, action) => {
         state.status = "pending";
@@ -42,9 +45,17 @@ const userSlice = createSlice({
         state.token = action.payload.userId;
         state.status = "fullfiled";
         state.error = "";
+        state.calendar = action.payload.calendar;
       })
       .addCase(register.rejected, (state, action) => {
         state.error = action.payload;
+      })
+      .addCase(changeEmail.fulfilled, (state, { payload }) => {
+        state.email = payload;
+      })
+      .addCase(getCalendar.fulfilled, (state, { payload }) => {
+        // console.log(payload);
+        state.calendar = payload.data;
       });
   },
 });
