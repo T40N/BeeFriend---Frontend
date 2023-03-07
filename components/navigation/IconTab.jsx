@@ -11,7 +11,7 @@ const IconTab = ({ focused, iconPath, name }) => {
     >
       <Image
         source={iconPath}
-        resizeMode="contain"
+        resizeMode='contain'
         style={{
           width: 25,
           height: 25,

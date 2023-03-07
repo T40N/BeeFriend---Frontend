@@ -51,9 +51,14 @@ const Calculator = () => {
           value={0}
           initValue={syrup}
           onChange={(value) => {
+            if (value > syrup) {
+              setSugar((prevState) => prevState + 0.75);
+              setWater((prevState) => prevState + 0.5);
+            } else {
+              setSugar((prevState) => prevState - 0.75);
+              setWater((prevState) => prevState - 0.5);
+            }
             setSyrup(value);
-            setSugar((prevState) => prevState + 0.75);
-            setWater((prevState) => prevState + 0.5);
           }}
           totalWidth={240}
           totalHeight={50}
@@ -85,9 +90,14 @@ const Calculator = () => {
           value={0}
           initValue={sugar}
           onChange={(value) => {
-            setSyrup((prevState) => prevState + 1);
+            if (value > sugar) {
+              setSyrup((prevState) => prevState + 1);
+              setWater((prevState) => prevState + 0.5);
+            } else {
+              setSyrup((prevState) => prevState - 1);
+              setWater((prevState) => prevState - 0.5);
+            }
             setSugar(value);
-            setWater((prevState) => prevState + 0.5);
           }}
           totalWidth={240}
           totalHeight={50}
@@ -119,8 +129,13 @@ const Calculator = () => {
           value={0}
           initValue={water}
           onChange={(value) => {
-            setSyrup((prevState) => prevState + 1);
-            setSugar((prevState) => prevState + 0.75);
+            if (value > water) {
+              setSyrup((prevState) => prevState + 1);
+              setSugar((prevState) => prevState + 0.75);
+            } else {
+              setSyrup((prevState) => prevState - 1);
+              setSugar((prevState) => prevState - 0.75);
+            }
             setWater(value);
           }}
           totalWidth={240}

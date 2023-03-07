@@ -68,7 +68,7 @@ const Map = ({ navigation }) => {
         )}
       </View>
       <CustomButton
-        title='Add BeeHave'
+        title='Add BeeHive'
         onPress={() => navigation.navigate("AddBeeHave")}
       />
     </PageContainer>

@@ -57,7 +57,7 @@ const Magazyn = ({ navigation }) => {
             margin: 16,
           }}
         >
-          Syrop: {syrop} kg
+          Sugar: {syrop}kg
         </Text>
         <View
           style={{
@@ -95,14 +95,14 @@ const Magazyn = ({ navigation }) => {
             }}
           >
             <CustomButton
-              title='Add Syrop'
+              title='Add Sugar'
               onPress={handleAddSyrop}
               disabled={syropQuantity === 0}
             />
             <CustomButton
-              title='Subtract Syrop'
+              title='Subtract Sugar'
               onPress={handleSubstractSyrop}
-              disabled={syropQuantity === 0}
+              disabled={syropQuantity === 0 || syrop === 0}
             />
           </View>
         </View>

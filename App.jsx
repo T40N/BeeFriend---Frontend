@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
-import Tabs from "./components/Navigation/Tabs";
+import Tabs from "./components/navigation/Tabs";
 
 import { store, persistor } from "./store/store";
 

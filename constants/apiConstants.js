@@ -1,4 +1,4 @@
-const base = "https://549c-31-183-145-158.eu.ngrok.io";
+const base = "https://beefriend-backend.onrender.com";
 
 const magazyn = {
   getMagazyn: `${base}/magazyn`,
@@ -20,6 +20,7 @@ const user = {
 const beeGarden = {
   getBeeGarden: `${base}/beeGarden`,
   postBeeHave: `${base}/addBeeHave`,
+  deleteBeeHave: `${base}/delete/`,
   setBeeHavePosition: `${base}/setPosition`,
   addData: `${base}/addData/`,
   addNote: `${base}/notes/addNote/`,

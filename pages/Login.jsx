@@ -10,11 +10,12 @@ import { emailRegx, passwordRegx } from "../utils/regex";
 import { ConstStyles } from "../constants/constStyles";
 
 const Login = ({ navigator }) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // stan komponentowy określający stan pola email formularza
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [loginError, setLoginError] = useState("");
+
   const dispatch = useDispatch();
 
   const isRegisterFalsy =
@@ -22,17 +23,17 @@ const Login = ({ navigator }) => {
     Boolean(email.trim() === "" || password.trim() === "");
 
   const handleOnSubmit = async () => {
+    setLoginError("");
+
+    if (email.trim() === "" || password.trim() === "") {
+      setLoginError("You need to set email and password");
+      return;
+    }
+
     const userLogin = {
       email: email.trim(),
       password: password.trim(),
     };
-
-    setLoginError("");
-
-    if (userLogin.email === "" || userLogin.password === "") {
-      setLoginError("You need to set email and password");
-      return;
-    }
 
     dispatch(login(userLogin))
       .unwrap()
@@ -43,7 +44,7 @@ const Login = ({ navigator }) => {
   };
 
   const handleEmailChange = (text) => {
-    setEmail(text);
+    setEmail(text); // zmiana stanu po każdym wywołaniu handleEmailChange
 
     if (text === "") {
       setEmailError("");
@@ -82,16 +83,17 @@ const Login = ({ navigator }) => {
       </Text>
       <Input
         isPassword={false}
-        name="Email"
-        placeholder="Email"
-        onChangeText={handleEmailChange}
-        value={email}
+        name='Email'
+        placeholder='Email'
+        onChangeText={handleEmailChange} // wywołanie funkcji po każdej zmianie pola email
+        value={email} // przypisanie wartości stanu do wartości pola, co pozwala uzyskać
+        // synchronizowanie stanu oraz wartości pola formularza
         error={emailError}
       />
       <Input
         isPassword={true}
-        name="Password"
-        placeholder="Password"
+        name='Password'
+        placeholder='Password'
         onChangeText={handlePasswordChange}
         value={password}
         error={passwordError}
@@ -102,7 +104,7 @@ const Login = ({ navigator }) => {
         </Text>
       )}
       <CustomButton
-        title="Login"
+        title='Login'
         onPress={handleOnSubmit}
         disabled={isRegisterFalsy}
       />

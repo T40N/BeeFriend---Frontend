@@ -73,6 +73,9 @@ const Calendar = () => {
       theme={{
         dotColor: theme.YELLOW,
         selectedDayBackgroundColor: theme.YELLOW,
+        selectedDayTextColor: theme.WHITE,
+        todayButtonTextColor: theme.BLACK,
+        todayTextColor: theme.YELLOW,
       }}
       markedDates={markedDates}
       onDayPress={(date) => setSelectedDate(date.dateString)}
@@ -140,9 +143,9 @@ const Calendar = () => {
                 onChangeText={(t) => setOpis(t)}
               />
               <CustomButton
-                title='Submit Event'
+                title='Submit'
                 onPress={handleSubmitEvent}
-                disabled={name.trim === "" || opis.trim === ""}
+                disabled={name.trim() === "" || opis.trim() === ""}
               />
             </View>
           </PageContainer>

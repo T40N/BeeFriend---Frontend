@@ -161,40 +161,40 @@ const Register = () => {
       </Text>
       <Input
         isPassword={false}
-        name="Name"
-        placeholder="Name"
+        name='Name'
+        placeholder='Name'
         onChangeText={handleNameChange}
         value={name}
         error={nameError}
       />
       <Input
         isPassword={false}
-        name="Surname"
-        placeholder="Surname"
+        name='Surname'
+        placeholder='Surname'
         onChangeText={handleSurnameChange}
         value={surname}
         error={surnameError}
       />
       <Input
         isPassword={false}
-        name="Email"
-        placeholder="Email"
+        name='Email'
+        placeholder='Email'
         onChangeText={handleEmailChange}
         value={email}
         error={emailError}
       />
       <Input
         isPassword={true}
-        name="Password"
-        placeholder="Password"
+        name='Password'
+        placeholder='Password'
         onChangeText={handlePasswordChange}
         value={password}
         error={passwordError}
       />
       <Input
         isPassword={true}
-        name="ConfirmPassword"
-        placeholder="ConfirmPassword"
+        name='ConfirmPassword'
+        placeholder='ConfirmPassword'
         onChangeText={handleConfirmPasswordChange}
         value={confirmPassword}
         error={confirmPasswordError}
@@ -205,7 +205,7 @@ const Register = () => {
         </Text>
       )}
       <CustomButton
-        title="Login"
+        title='Register'
         onPress={handleOnSubmit}
         disabled={isRegisterFalsy}
       />

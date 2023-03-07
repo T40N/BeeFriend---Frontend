@@ -71,6 +71,27 @@ export const setBeeHavePosition = createAsyncThunk(
   }
 );
 
+export const deleteBeeHive = createAsyncThunk(
+  "beeGarden/deleteBeeHive",
+  async (id, { rejectWithValue, getState }) => {
+    const { user } = getState();
+    try {
+      const response = await axios({
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "*/*",
+          Authorization: `Bearer ${user.token}`,
+        },
+        method: "DELETE",
+        url: apiConstants.beeGarden.deleteBeeHave + id,
+      });
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const addData = createAsyncThunk(
   "beeGarden/addData",
   async (

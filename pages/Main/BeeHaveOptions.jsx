@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import CustomButton from "../../components/UI/CustomButton";
 import PageContainer from "../../components/UI/PageContainer";
+import {
+  deleteBeeHive,
+  getBeeGarden,
+} from "../../store/beeGardenSlice.js/beeGardenActions";
 import { getBeeHaveById } from "../../store/beeGardenSlice.js/beeGardenSlice";
 
 const BeeHaveOptions = ({ route, navigation }) => {
@@ -25,11 +29,20 @@ const BeeHaveOptions = ({ route, navigation }) => {
       alignItems: "center",
     },
   });
+
+  const onDelete = () => {
+    dispatch(deleteBeeHive(beeHaveId)).then(() => {
+      dispatch(getBeeGarden()).then(() => {
+        navigation.navigate("Map");
+      });
+    });
+  };
+
   return (
     <PageContainer>
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="History"
+          title='History'
           onPress={() =>
             navigation.navigate("History", {
               beeHaveId,
@@ -37,17 +50,16 @@ const BeeHaveOptions = ({ route, navigation }) => {
           }
         />
         <CustomButton
-          title="Notes"
+          title='Notes'
           onPress={() =>
             navigation.navigate("Notes", {
               beeHaveId,
             })
           }
         />
-        <CustomButton title="Delete" onPress={() => ""} />
-        {/* to do delete action */}
+        <CustomButton title='Delete' onPress={() => onDelete()} />
         <CustomButton
-          title="Cancel"
+          title='Cancel'
           onPress={() => navigation.navigate("Map")}
         />
       </View>

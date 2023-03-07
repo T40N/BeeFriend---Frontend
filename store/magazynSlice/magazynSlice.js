@@ -14,8 +14,10 @@ const magazynSlice = createSlice({
     builder.addCase(getMagazyn.fulfilled, (state, { payload }) => {
       console.log("payload getMagazyn", payload);
 
-      state.syrop = payload.data.fodder[0].quantity;
-      state.syropId = payload.data.fodder[0]._id;
+      if (payload.data.fodder.length > 0) {
+        state.syrop = payload.data.fodder[0].quantity;
+        state.syropId = payload.data.fodder[0]._id;
+      }
 
       state.tools = payload.data.tools;
     });

@@ -6,7 +6,10 @@ import NumericInput from "react-native-numeric-input";
 import { useState } from "react";
 import theme from "../../constants/theme";
 import { useDispatch } from "react-redux";
-import { addData } from "../../store/beeGardenSlice.js/beeGardenActions";
+import {
+  addData,
+  getBeeGarden,
+} from "../../store/beeGardenSlice.js/beeGardenActions";
 
 const AddDataToHistory = ({ route, navigation }) => {
   const [waxValue, setWaxValue] = useState(0);
@@ -24,7 +27,9 @@ const AddDataToHistory = ({ route, navigation }) => {
         honeyTaken: honeyValue,
       })
     ).then(() => {
-      navigation.navigate("Map");
+      dispatch(getBeeGarden()).then(() => {
+        navigation.navigate("Map");
+      });
     });
   };
 
@@ -41,7 +46,7 @@ const AddDataToHistory = ({ route, navigation }) => {
         }}
       >
         <Text style={{ fontSize: 12, color: theme.GREY, marginRight: 14 }}>
-          Wax Taken:
+          Wax Taken (liters):
         </Text>
         <NumericInput
           value={waxValue}
@@ -50,7 +55,7 @@ const AddDataToHistory = ({ route, navigation }) => {
           totalHeight={50}
           iconSize={25}
           step={0.1}
-          valueType="real"
+          valueType='real'
           rounded
           textColor={theme.BLACK}
           iconStyle={{ color: theme.YELLOW }}
@@ -69,7 +74,7 @@ const AddDataToHistory = ({ route, navigation }) => {
         }}
       >
         <Text style={{ fontSize: 12, color: theme.GREY, marginRight: 14 }}>
-          Honey Taken:
+          Honey Taken (liters):
         </Text>
         <NumericInput
           value={honeyValue}
@@ -78,7 +83,7 @@ const AddDataToHistory = ({ route, navigation }) => {
           totalHeight={50}
           iconSize={25}
           step={0.1}
-          valueType="real"
+          valueType='real'
           rounded
           textColor={theme.BLACK}
           iconStyle={{ color: theme.YELLOW }}
@@ -98,12 +103,12 @@ const AddDataToHistory = ({ route, navigation }) => {
         }}
       >
         <CustomButton
-          title="Submit"
+          title='Submit'
           onPress={handleSubmit}
           disabled={waxValue <= 0 || honeyValue <= 0}
         />
         <CustomButton
-          title="Cancel"
+          title='Cancel'
           onPress={() =>
             navigation.navigate("History", {
               honeyTakenAll,

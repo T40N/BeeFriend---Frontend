@@ -76,12 +76,20 @@ const Tools = () => {
           disabled={name.trim() === "" || opis.trim() === ""}
         />
       </View>
-      <View style={{ height: 300, marginTop: 36, marginBottom: 36 }}>
+      <View
+        style={{
+          height: 300,
+          marginTop: 36,
+          marginBottom: 36,
+          alignSelf: "stretch",
+        }}
+      >
         <ScrollView
           contentContainerStyle={{
             marginTop: 32,
             flexGrow: 1,
             paddingBottom: 50,
+            alignSelf: "stretch",
           }}
         >
           {tools.length ? (
@@ -95,6 +103,7 @@ const Tools = () => {
                     borderWidth: 1,
                     margin: 12,
                     padding: 6,
+                    alignSelf: "stretch",
                   }}
                 >
                   <Text
@@ -105,7 +114,7 @@ const Tools = () => {
                     {name}
                   </Text>
                   <Text>{opis}</Text>
-                  <Text>{quantity}</Text>
+                  <Text>Quantity: {quantity}</Text>
                   <Text
                     style={{
                       color: theme.YELLOW,

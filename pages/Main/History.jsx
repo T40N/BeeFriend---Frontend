@@ -14,9 +14,11 @@ const History = ({ route, navigation }) => {
   )[0];
   const { history, honeyTakenAll, waxTakenAll } = currentBeeHave;
   const screenWidth = Dimensions.get("window").width;
-  console.log(currentBeeHave);
+  console.log(beeHaves);
   let labels = [];
   let data = [];
+
+  console.log("history", history);
 
   if (history.length > 0) {
     labels = history.map((historyEvent) => {
@@ -47,15 +49,15 @@ const History = ({ route, navigation }) => {
       >
         <Text
           style={{
-            fontSize: 32,
+            fontSize: 20,
             color: theme.GREY,
-            marginBottom: 12,
+            marginTop: 8,
           }}
         >
-          History
+          History - {dataCategory === "waxTaken" ? "Wax" : "Honey"}
         </Text>
         <CustomButton
-          title="Change category"
+          title='Change category'
           onPress={() =>
             setDataCategory((prevState) =>
               prevState === "waxTaken" ? "honeyTaken" : "waxTaken"
@@ -123,7 +125,7 @@ const History = ({ route, navigation }) => {
         }}
       >
         <CustomButton
-          title="Add Data"
+          title='Add Data'
           onPress={() =>
             navigation.navigate("AddDataToHistory", {
               beeHaveId,
@@ -131,7 +133,7 @@ const History = ({ route, navigation }) => {
           }
         />
         <CustomButton
-          title="Cancel"
+          title='Cancel'
           onPress={() => navigation.navigate("Map")}
         />
       </View>

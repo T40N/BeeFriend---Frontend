@@ -21,7 +21,6 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
-        console.log(action.payload.token);
         state.status = "fullfiled";
         state.email = action.payload.email;
         state.name = action.payload.name;

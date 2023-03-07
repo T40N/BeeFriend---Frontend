@@ -44,39 +44,39 @@ const Tabs = () => {
           }}
         >
           <Tab.Screen
-            name="Calendar"
+            name='Calendar'
             component={Calendar}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/calendar.png")}
-                  name="Calendar"
+                  name='Calendar'
                 />
               ),
             }}
           />
           <Tab.Screen
-            name="Magazyn"
+            name='Magazyn'
             component={Magazyn}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/magazyn.png")}
-                  name="Magazyn"
+                  name='Magazyn'
                 />
               ),
             }}
           />
           <Tab.Screen
-            name="Home"
+            name='Home'
             component={Main}
             options={{
               tabBarIcon: ({ focused }) => (
                 <Image
                   source={require("../../assets/home.png")}
-                  resizeMode="contain"
+                  resizeMode='contain'
                   style={{
                     width: 30,
                     height: 30,
@@ -88,27 +88,27 @@ const Tabs = () => {
             }}
           />
           <Tab.Screen
-            name="Calculator"
+            name='Calculator'
             component={Calculator}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/calculator.png")}
-                  name="Calculator"
+                  name='Calculator'
                 />
               ),
             }}
           />
           <Tab.Screen
-            name="Account"
+            name='Account'
             component={Account}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/account.png")}
-                  name="Account"
+                  name='Account'
                 />
               ),
             }}
@@ -136,27 +136,27 @@ const Tabs = () => {
           }}
         >
           <Tab.Screen
-            name="Login"
+            name='Login'
             component={Login}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/login.png")}
-                  name="Login"
+                  name='Login'
                 />
               ),
             }}
           />
           <Tab.Screen
-            name="Register"
+            name='Register'
             component={Register}
             options={{
               tabBarIcon: ({ focused }) => (
                 <IconTab
                   focused={focused}
                   iconPath={require("../../assets/register.png")}
-                  name="Register"
+                  name='Register'
                 />
               ),
             }}
